@@ -166,21 +166,30 @@
                 <div class="absolute top-0 right-0 w-64 h-64 bg-brand/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
                 
                 <h2 class="text-4xl font-bold mb-4 relative z-10">Join the Founding Family</h2>
-                <p class="text-gray-400 mb-8 relative z-10">The first 100 customers and providers get a 'Founding Member' badge and 0% service fees for the first 6 months.</p>
+                <p class="text-gray-400 mb-8 relative z-10">The first 100 users get a 'Founding Member' badge and 0% service fees for the first 6 months.</p>
                 
-                <form class="flex flex-col sm:flex-row gap-3 relative z-10">
+                <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdbeVMzA2Fv91hRqbbPJCB21W4A-FZVY1cs56YdwPiz_PkKjA/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="flex flex-col sm:flex-row gap-3 relative z-10">
+                    <select name="entry.1065046570" class="bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand appearance-none" required>
+                        <option value="" disabled selected class="text-gray-900">I am a...</option>
+                        <option value="customer" class="text-gray-900">Customer</option>
+                        <option value="provider" class="text-gray-900">Service Provider</option>
+                    </select>
                     <input 
+                        type="email"
+                        name="entry.1045781291"
                         placeholder="Enter your email address" 
                         class="flex-1 bg-black/50 border border-white/10 rounded-xl px-6 py-4 text-white focus:outline-none focus:border-brand transition-colors"
                         required
                     >
-                    <button type="submit" class="bg-white text-black font-bold px-8 py-4 rounded-xl hover:bg-gray-200 transition-colors">
+                    <button type="submit" class="bg-white text-black font-bold px-3 py-2 rounded-xl hover:bg-gray-200 transition-colors">
                         Secure Spot
                     </button>
                 </form>
             </div>
         </div>
     </section>
+
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){alert('See you soon👋!');}"></iframe>
 
     <footer class="border-t border-white/10 py-8 text-center text-gray-500 text-sm mt-12">
         <p>&copy; 2026 HiCom Glow. All rights reserved.</p>
@@ -190,6 +199,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     
     <script>
+        var submitted=false;
+
         // Register GSAP ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
