@@ -17,12 +17,12 @@ function openModal(modalId) {
     const panel = modal.querySelector('.glass-panel');
 
     modal.classList.remove('hidden');
-    
+
     // Fade in overlay
     gsap.to(modal, { opacity: 1, duration: 0.4, ease: "power2.out" });
 
     // Scale and Fade in panel
-    gsap.fromTo(panel, 
+    gsap.fromTo(panel,
         { scale: 0.8, y: 30, opacity: 0 },
         { scale: 1, y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
     );
@@ -30,7 +30,7 @@ function openModal(modalId) {
 
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
-    
+
     gsap.to(modal, {
         opacity: 0,
         duration: 0.3,
@@ -54,13 +54,25 @@ document.querySelectorAll('[id$="-modal"]').forEach(modal => {
     });
 });
 
+// --- Smooth scroll to waitlist ---
+const waitlistLinks = document.querySelectorAll('a[href="#waitlist"]');
+waitlistLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector('#waitlist');
+        const headerOffset = 120;
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+        gsap.to(window, { duration: 0.2, scrollTo: targetPosition, ease: "power2.inOut" });
+    });
+});
+
 // --- Form Handling ---
 waitlistForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
     // Start Loading State
     submitBtn.disabled = true;
-    btnText.textContent = "Processing...";
+    btnText.textContent = "Saving...";
     btnSpinner.classList.remove('hidden');
 
     const email = document.getElementById('user-email').value;
@@ -69,9 +81,9 @@ waitlistForm.addEventListener('submit', async (e) => {
     try {
         const { error } = await _supabase
             .from('waitlist')
-            .insert([{ 
-                email: email.toLowerCase().trim(), 
-                user_type: userType 
+            .insert([{
+                email: email.toLowerCase().trim(),
+                user_type: userType
             }]);
 
         if (error) {
@@ -99,7 +111,7 @@ waitlistForm.addEventListener('submit', async (e) => {
 // --- Aesthetic Animations (Timeline) ---
 const tl = gsap.timeline();
 tl.from(".gs-reveal", { y: -20, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out" })
-  .from(".gs-hero", { y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: "power4.out" }, "-=0.5");
+    .from(".gs-hero", { y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: "power4.out" }, "-=0.5");
 
 // Mouse Glow
 const mouseGlow = document.getElementById('mouseGlow');
