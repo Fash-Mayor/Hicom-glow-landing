@@ -1,155 +1,113 @@
-var submitted = false;
-
-// Register GSAP ScrollTrigger
+// --- Initializations ---
 gsap.registerPlugin(ScrollTrigger);
 
-// 1. Initial Load Animations
-const tl = gsap.timeline();
+const supabaseUrl = 'https://jzvyllilhegnujqrjiyi.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp6dnlsbGlsaGVnbnVqcXJqaXlpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg2NzQxOTksImV4cCI6MjA4NDI1MDE5OX0.oljxYJ2GFbifb1q0FvAEfa2eLdQkvAB4lXfq2LR4QQ8';
+const _supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-tl.from(".gs-reveal", {
-    y: -20,
-    opacity: 0,
-    duration: 0.8,
-    stagger: 0.1,
-    ease: "power3.out"
-})
-.from(".gs-hero", {
-    y: 30,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.15,
-    ease: "power4.out"
-}, "-=0.5")
-.from(".gs-hero-image", {
-    x: 50,
-    opacity: 0,
-    duration: 1.2,
-    ease: "power3.out"
-}, "-=0.8");
+// --- Selectors ---
+const waitlistForm = document.getElementById('waitlist-form');
+const submitBtn = document.getElementById('submit-btn');
+const btnText = document.getElementById('btn-text');
+const btnSpinner = document.getElementById('btn-spinner');
 
-// 2. Scroll Animations
-gsap.from(".gs-fade-up", {
-    scrollTrigger: {
-        trigger: ".gs-fade-up",
-        start: "top 80%",
-    },
-    y: 40,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-});
+// --- Reusable Modal Functions ---
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    const panel = modal.querySelector('.glass-panel');
 
-// 3. Futuristic Mouse Tracking Glow Effect
-const mouseGlow = document.getElementById('mouseGlow');
-document.addEventListener('mousemove', (e) => {
-    // Smoothly move the background radial gradient to follow the mouse
-    gsap.to(mouseGlow, {
-        x: e.clientX - window.innerWidth / 2,
-        y: e.clientY - window.innerHeight / 2,
-        duration: 0.8,
-        ease: "power2.out"
-    });
-});
-
-// 4. Navbar styling on scroll
-window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-        nav.classList.add('bg-black/50', 'backdrop-blur-lg');
-    } else {
-        nav.classList.remove('bg-black/50', 'backdrop-blur-lg');
-    }
-});
-
-// --- Waitlist Form Logic ---
-
-// Wrap everything in a listener to wait for the HTML to load
-document.addEventListener('DOMContentLoaded', () => {
-    const waitlistForm = document.getElementById('waitlist-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const btnText = document.getElementById('btn-text');
-    const btnSpinner = document.getElementById('btn-spinner');
-
-    // Only run if the form actually exists on the page
-    if (waitlistForm) {
-        waitlistForm.addEventListener('submit', () => {
-            submitted = true; 
-            
-            // UI Loading State
-            submitBtn.disabled = true;
-            if (btnText) btnText.textContent = "Saving...";
-            if (btnSpinner) btnSpinner.classList.remove('hidden');
-        });
-    }
-});
-
-// --- Modal Logic ---
-
-function showSuccessModal() {
-    const modal = document.getElementById('success-modal');
     modal.classList.remove('hidden');
     
-    // Using your existing GSAP for a smooth entrance
-    gsap.to(modal, {
-        opacity: 1,
-        duration: 0.4,
-        ease: "power2.out"
-    });
-    
-    gsap.from(modal.querySelector('.glass-panel'), {
-        scale: 0.8,
-        y: 20,
-        duration: 0.5,
-        ease: "back.out(1.7)"
-    });
+    // Fade in overlay
+    gsap.to(modal, { opacity: 1, duration: 0.4, ease: "power2.out" });
+
+    // Scale and Fade in panel
+    gsap.fromTo(panel, 
+        { scale: 0.8, y: 30, opacity: 0 },
+        { scale: 1, y: 0, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
+    );
 }
 
-function hideSuccessModal() {
-    const modal = document.getElementById('success-modal');
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
     
     gsap.to(modal, {
         opacity: 0,
-        scale: 0.9,
         duration: 0.3,
+        ease: "power2.in",
         onComplete: () => {
             modal.classList.add('hidden');
         }
     });
 }
 
-// Update your handleResponse function
-window.handleResponse = function() {
-    if (submitted) {
-        // 1. Trigger the Modal instead of alert
-        showSuccessModal();
-        
-        // 2. Reset Button & Form
-        const waitlistForm = document.getElementById('waitlist-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const btnText = document.getElementById('btn-text');
-        const btnSpinner = document.getElementById('btn-spinner');
+// --- Event Listeners ---
+document.getElementById('close-modal').addEventListener('click', () => closeModal('success-modal'));
+document.getElementById('close-error-modal').addEventListener('click', () => closeModal('error-modal'));
 
-        if (submitBtn) {
-            submitBtn.disabled = false;
-            if (btnText) btnText.textContent = "Secure Spot";
-            if (btnSpinner) btnSpinner.classList.add('hidden');
+// Close on background click
+document.querySelectorAll('[id$="-modal"]').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal || e.target.classList.contains('absolute')) {
+            closeModal(modal.id);
         }
-        
-        if (waitlistForm) waitlistForm.reset();
-        submitted = false;
-    }
-};
+    });
+});
 
-// Add listener for the close button
-document.addEventListener('DOMContentLoaded', () => {
-    const closeBtn = document.getElementById('close-modal');
-    if (closeBtn) {
-        closeBtn.addEventListener('click', hideSuccessModal);
-    }
+// --- Form Handling ---
+waitlistForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
     
-    // Optional: Close modal if clicking on the overlay
-    const modalOverlay = document.querySelector('#success-modal .bg-black/60');
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', hideSuccessModal);
+    // Start Loading State
+    submitBtn.disabled = true;
+    btnText.textContent = "Processing...";
+    btnSpinner.classList.remove('hidden');
+
+    const email = document.getElementById('user-email').value;
+    const userType = document.getElementById('user-type').value;
+
+    try {
+        const { error } = await _supabase
+            .from('waitlist')
+            .insert([{ 
+                email: email.toLowerCase().trim(), 
+                user_type: userType 
+            }]);
+
+        if (error) {
+            if (error.code === '23505') {
+                openModal('error-modal');
+                return;
+            }
+            throw error;
+        }
+
+        openModal('success-modal');
+        waitlistForm.reset();
+
+    } catch (error) {
+        console.error("Submission error:", error);
+        alert("Something went wrong. Please check your connection.");
+    } finally {
+        // Reset Button State
+        submitBtn.disabled = false;
+        btnText.textContent = "Secure Spot";
+        btnSpinner.classList.add('hidden');
     }
+});
+
+// --- Aesthetic Animations (Timeline) ---
+const tl = gsap.timeline();
+tl.from(".gs-reveal", { y: -20, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out" })
+  .from(".gs-hero", { y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: "power4.out" }, "-=0.5");
+
+// Mouse Glow
+const mouseGlow = document.getElementById('mouseGlow');
+document.addEventListener('mousemove', (e) => {
+    gsap.to(mouseGlow, {
+        x: e.clientX - window.innerWidth / 2,
+        y: e.clientY - window.innerHeight / 2,
+        duration: 0.8,
+        ease: "power2.out"
+    });
 });
