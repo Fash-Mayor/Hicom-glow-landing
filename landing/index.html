@@ -80,6 +80,158 @@
             50% { transform: translateY(-15px); }
             100% { transform: translateY(0px); }
         }
+
+        /* --- 2030 editorial UI helpers --- */
+        .glow-grid {
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(to right, rgba(124, 86, 41, 0.06) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(124, 86, 41, 0.06) 1px, transparent 1px);
+            background-size: 80px 80px;
+            opacity: 0.6;
+            mask-image: radial-gradient(circle at 40% 20%, rgba(0,0,0,1), rgba(0,0,0,0));
+        }
+
+        .photo-frame {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(124, 86, 41, 0.18);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+            transform: translateZ(0);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-a { position: absolute; left: 0; top: 10px; width: 280px; height: 360px; z-index: 20; }
+        .photo-b { position: absolute; right: 10px; top: 60px; width: 240px; height: 300px; z-index: 10; }
+        .photo-c { position: absolute; left: 70px; bottom: -10px; width: 310px; height: 220px; z-index: 30; background: rgba(255,255,255,0.75); }
+
+        .section-pill {
+            border: 1px solid rgba(124, 86, 41, 0.15);
+        }
+
+        .badge-gold {
+            background: rgba(124, 86, 41, 0.10);
+            border: 1px solid rgba(124, 86, 41, 0.25);
+            color: #7c5629;
+            border-radius: 9999px;
+            padding: 6px 12px;
+            font-weight: 700;
+            font-size: 12px;
+        }
+
+        .badge-gold-soft {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(124, 86, 41, 0.08);
+            border: 1px solid rgba(124, 86, 41, 0.18);
+            color: #7c5629;
+            border-radius: 9999px;
+            padding: 8px 14px;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: 0.06em;
+        }
+
+        .mini-card {
+            background: rgba(255,255,255,0.7);
+            border: 1px solid rgba(124, 86, 41, 0.14);
+            border-radius: 16px;
+            padding: 12px;
+        }
+        .mini-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 9999px;
+            margin-bottom: 8px;
+            background: #7c5629;
+        }
+        .mini-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: #3a2a1f;
+        }
+        .mini-value {
+            font-size: 14px;
+            font-weight: 900;
+            color: #1f2937;
+            margin-top: 4px;
+        }
+
+        .provider-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 12px 14px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.6);
+            border: 1px solid rgba(124, 86, 41, 0.15);
+        }
+        .provider-check {
+            width: 28px;
+            height: 28px;
+            border-radius: 10px;
+            background: rgba(124, 86, 41, 0.10);
+            border: 1px solid rgba(124, 86, 41, 0.20);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7c5629;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .dash-chip {
+            background: rgba(124, 86, 41, 0.08);
+            border: 1px solid rgba(124, 86, 41, 0.16);
+            color: #3a2a1f;
+            border-radius: 9999px;
+            padding: 8px 10px;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .security-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(124, 86, 41, 0.08);
+            border: 1px solid rgba(124, 86, 41, 0.18);
+            font-size: 22px;
+        }
+
+        .quote-mark {
+            font-size: 56px;
+            line-height: 0.9;
+            color: rgba(124, 86, 41, 0.25);
+            font-weight: 900;
+        }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 9999px;
+            overflow: hidden;
+            border: 1px solid rgba(124, 86, 41, 0.18);
+        }
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
     </style>
 </head>
 
