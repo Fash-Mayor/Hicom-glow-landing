@@ -33,8 +33,8 @@ const LANDING_HTML = `
             </div>
 
             <h1 class="mt-6 text-5xl md:text-7xl font-extrabold leading-tight text-gray-900 gs-hero">
-                HiCom Glow turns
-                <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">appointments into a ritual.</span>
+                Discover perfection
+                <span class="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">Elevate your craft.</span>
             </h1>
 
             <p class="mt-5 text-lg md:text-xl text-gray-600 max-w-xl gs-hero leading-relaxed">

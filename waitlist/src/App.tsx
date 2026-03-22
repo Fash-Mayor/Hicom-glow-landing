@@ -113,8 +113,6 @@ const WAITLIST_HTML = `
     </div>
 </section>
 
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="handleResponse()"></iframe>
-
 <footer class="border-t border-white/10 py-8 text-center text-gray-500 text-sm mt-3">
     <p>&copy; 2026 HiCom Glow. All rights reserved.</p>
 </footer>
@@ -176,9 +174,7 @@ export default function App() {
     const btnSpinner = document.getElementById('btn-spinner') as HTMLElement | null
     const mouseGlow = document.getElementById('mouseGlow')
 
-    if (!waitlistForm || !submitBtn || !btnText || !btnSpinner || !mouseGlow) return
-
-    ;(w.handleResponse ??= () => {}) // Used by the hidden iframe's inline onload.
+    if (!waitlistForm || !submitBtn || !btnText || !btnSpinner || !mouseGlow) return;
 
     const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string | undefined
     const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string | undefined
