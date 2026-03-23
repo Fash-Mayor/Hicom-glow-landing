@@ -1,12 +1,11 @@
-const https = require('https');
+import https from 'https';
 
 const data = JSON.stringify({
   host: "hicom-glow-landing.vercel.app",
   key: "7af881aea42d4ed893b8ff6b535b6b9c",
-  keyLocation: "https://hicom-glow-landing.vercel.app/7af881aea42d4ed893b8ff6b535b6b9c.txt",
+  keyLocation: "https://hicomglow.com/7af881aea42d4ed893b8ff6b535b6b9c.txt",
   urlList: [
-    "https://www.hicomglow.com", // Main page
-    "https://www.hicomglow.com" // Add other pages here
+    "https://hicomglow.com/"
   ]
 });
 
@@ -16,7 +15,7 @@ const options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json; charset=utf-8',
-    'Content-Length': data.length
+    'Content-Length': Buffer.byteLength(data) // Use Buffer for accurate length
   }
 };
 
@@ -25,7 +24,7 @@ const req = https.request(options, (res) => {
 });
 
 req.on('error', (error) => {
-  console.error(error);
+  console.error('IndexNow Error:', error);
 });
 
 req.write(data);
