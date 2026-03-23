@@ -6,7 +6,24 @@
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HiCom Glow | The Premium Service Marketplace</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <meta name="title" content="HiCom Glow | The Premium Way to Book Beauty" />
+    <meta name="description" content="Discover verified talent, book instantly, and manage your beauty glow with secure payments and zero stress." />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.hicomglow.com" />
+    <meta property="og:title" content="HiCom Glow | The Premium Way to Book Beauty Services" />
+    <meta property="og:description" content="We bridge top-tier beauty service providers with high-value clients. Join the founding family today." />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image" content="https://www.hicomglow.com/icon-512.png" />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.hicomglow.com" />
+    <meta property="twitter:title" content="HiCom Glow | The Premium Way to Book Beauty" />
+    <meta property="twitter:description" content="Discover verified talent and book instantly with HiCom Glow." />
+    <meta property="twitter:image" content="https://www.hicomglow.com/icon-512.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto+Slab:wght@100..900&family=Satisfy&display=swap" rel="stylesheet">
@@ -46,7 +63,10 @@
         /* Soft Ambient Glow for Light Mode */
         .glow-bg {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background:
                 radial-gradient(circle at 15% 50%, rgba(124, 86, 41, 0.08) 0%, transparent 50%),
                 radial-gradient(circle at 85% 30%, rgba(163, 123, 79, 0.08) 0%, transparent 50%);
@@ -71,7 +91,7 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(124, 86, 41, 0.2);
         }
-        
+
         .hicom {
             color: #7a7676;
             font-family: "Roboto Slab", serif;
@@ -94,9 +114,17 @@
         }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
         }
 
         /* --- 2030 editorial UI helpers --- */
@@ -108,7 +136,7 @@
                 linear-gradient(to bottom, rgba(124, 86, 41, 0.06) 1px, transparent 1px);
             background-size: 80px 80px;
             opacity: 0.6;
-            mask-image: radial-gradient(circle at 40% 20%, rgba(0,0,0,1), rgba(0,0,0,0));
+            mask-image: radial-gradient(circle at 40% 20%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
         }
 
         .photo-frame {
@@ -127,9 +155,33 @@
             display: block;
         }
 
-        .photo-a { position: absolute; left: 0; top: 10px; width: 280px; height: 360px; z-index: 20; }
-        .photo-b { position: absolute; right: 10px; top: 60px; width: 240px; height: 300px; z-index: 10; }
-        .photo-c { position: absolute; left: 70px; bottom: -10px; width: 310px; height: 220px; z-index: 30; background: rgba(255,255,255,0.75); }
+        .photo-a {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 280px;
+            height: 360px;
+            z-index: 20;
+        }
+
+        .photo-b {
+            position: absolute;
+            right: 10px;
+            top: 60px;
+            width: 240px;
+            height: 300px;
+            z-index: 10;
+        }
+
+        .photo-c {
+            position: absolute;
+            left: 70px;
+            bottom: -10px;
+            width: 310px;
+            height: 220px;
+            z-index: 30;
+            background: rgba(255, 255, 255, 0.75);
+        }
 
         .section-pill {
             border: 1px solid rgba(124, 86, 41, 0.15);
@@ -160,11 +212,12 @@
         }
 
         .mini-card {
-            background: rgba(255,255,255,0.7);
+            background: rgba(255, 255, 255, 0.7);
             border: 1px solid rgba(124, 86, 41, 0.14);
             border-radius: 16px;
             padding: 12px;
         }
+
         .mini-dot {
             width: 10px;
             height: 10px;
@@ -172,11 +225,13 @@
             margin-bottom: 8px;
             background: #7c5629;
         }
+
         .mini-label {
             font-size: 12px;
             font-weight: 700;
             color: #3a2a1f;
         }
+
         .mini-value {
             font-size: 14px;
             font-weight: 900;
@@ -190,9 +245,10 @@
             align-items: flex-start;
             padding: 12px 14px;
             border-radius: 18px;
-            background: rgba(255,255,255,0.6);
+            background: rgba(255, 255, 255, 0.6);
             border: 1px solid rgba(124, 86, 41, 0.15);
         }
+
         .provider-check {
             width: 28px;
             height: 28px;
@@ -244,6 +300,7 @@
             overflow: hidden;
             border: 1px solid rgba(124, 86, 41, 0.18);
         }
+
         .avatar img {
             width: 100%;
             height: 100%;

@@ -1,0 +1,6 @@
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Link to your sitemap (update this once you generate one)
+Sitemap: https://www.hicomglow.com/sitemap.xml
