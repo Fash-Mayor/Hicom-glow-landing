@@ -130,7 +130,7 @@ const Landing = () => {
           </div>
           <div className="hidden lg:flex gap-8 text-sm font-medium text-gray-600 gs-reveal">
             <a href="#how" className="hover:text-brand transition">How it works</a>
-            <a href="#providers" className="hover:text-brand transition">Providers</a>
+            <a href="#providers" className="hover:text-brand transition">Service Providers</a>
             <a href="#customers" className="hover:text-brand transition">Customers</a>
             <a href="#security" className="hover:text-brand transition">Security</a>
           </div>
@@ -174,7 +174,7 @@ const Landing = () => {
                 href="#providers"
                 className="btn-hover bg-white text-gray-900 border border-gray-200 shadow-sm px-8 py-4 rounded-full font-bold text-lg text-center"
               >
-                I am a Provider
+                I am a Service Provider
               </a>
               <a
                 href="#waitlist"
@@ -204,7 +204,7 @@ const Landing = () => {
                   Verified
                 </div>
                 <div className="text-sm font-medium text-gray-700 mt-1">
-                  Provider quality
+                  Service Provider quality
                 </div>
               </div>
             </div>
@@ -260,8 +260,8 @@ const Landing = () => {
               A platform built for both sides
             </h2>
             <p className="mt-4 text-gray-600 max-w-2xl mx-auto gs-fade-up leading-relaxed">
-              Providers onboard, post services, and manage bookings. Customers
-              create an account, book the perfect provider, and handle changes
+              Service Providers onboard, post services, and manage bookings. Customers
+              create an account, book the perfect service provider, and handle changes
               with confidence.
             </p>
           </div>
@@ -270,7 +270,7 @@ const Landing = () => {
             <div className="glass-panel rounded-3xl p-7 gs-fade-up">
               <div className="badge-gold-soft">01</div>
               <h3 className="mt-4 text-2xl font-bold text-gray-900">
-                Providers onboard
+                Service Providers onboard
               </h3>
               <p className="mt-3 text-gray-600 leading-relaxed">
                 Create your profile, define your services, and share your
@@ -283,7 +283,7 @@ const Landing = () => {
                 Customers book & pay securely
               </h3>
               <p className="mt-3 text-gray-600 leading-relaxed">
-                Search, choose a provider, and book in seconds. Payments are
+                Search, choose a service provider, and book in seconds. Payments are
                 secure, so you and your client can relax.
               </p>
             </div>
@@ -310,7 +310,7 @@ const Landing = () => {
             </div>
             <div className="gs-fade-up">
               <div className="badge-gold-soft inline-flex items-center mt-3">
-                Providers
+                Service Providers
               </div>
               <h2 className="mt-5 text-4xl md:text-5xl font-extrabold text-gray-900">
                 Turn your craft into booked-out schedules
@@ -383,7 +383,7 @@ const Landing = () => {
               </h2>
               <p className="mt-4 text-gray-600 text-lg leading-relaxed">
                 Customers create an account, handle booking in a few taps, and
-                book a service with any provider.
+                book a service with any service provider.
               </p>
 
               <div className="mt-8 space-y-4">
@@ -394,7 +394,7 @@ const Landing = () => {
                       Book a service
                     </div>
                     <div className="text-gray-600 text-sm">
-                      Choose the provider you trust and confirm quickly
+                      Choose the service provider you trust and confirm quickly
                     </div>
                   </div>
                 </div>
@@ -494,7 +494,7 @@ const Landing = () => {
                   Ready to glow on day one?
                 </div>
                 <div className="text-sm text-gray-600">
-                  Join the waitlist for providers and customers.
+                  Join the waitlist for service providers and customers.
                 </div>
               </div>
               <a
@@ -514,7 +514,7 @@ const Landing = () => {
           <div className="glass-panel rounded-3xl p-10 md:p-12 relative overflow-hidden gs-fade-up">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
             <h2 className="text-4xl font-bold mb-4 relative z-10 text-gray-900">Join the Founding Family</h2>
-            <p className="text-gray-700 mb-8 relative z-10">The first 100 users get a 'Founding Member' badge and 0% service fees for the first 6 months.</p>
+            <p className="text-gray-700 mb-8 relative z-10">The first 100 users get a 'Founding Member' badge and 0% service fees for the first 2 months.<br/> (50 customers and 50 service proviers)</p>
 
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 relative z-10">
               <select
@@ -562,8 +562,8 @@ const Landing = () => {
             <div className="w-16 h-16 bg-brand/20 border border-brand rounded-full flex items-center justify-center mx-auto mb-6">
               <img src={favicon} alt="logo" className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-bold mb-2 text-gray-900">Yaaayyy!</h3>
-            <p className="text-gray-600 mb-8 leading-relaxed">Welcome to the founding family. We'll reach out as soon as we're ready to glow.</p>
+            <h3 className="text-2xl font-bold mb-2 text-gray-900">Saved!</h3>
+            <p className="text-gray-600 mb-8 leading-relaxed">Waitlist joined successfully. We've sent you a welcome mail with details on what's next. Go check it out.</p>
             <button onClick={() => setShowSuccess(false)} className="w-full bg-brand text-white font-bold py-4 rounded-xl hover:bg-opacity-90">
               Great, thanks!
             </button>
@@ -580,7 +580,7 @@ const Landing = () => {
               <span className="text-2xl">👋</span>
             </div>
             <h3 className="text-2xl font-bold mb-2 text-gray-900">Already Glowing!</h3>
-            <p className="text-gray-600 mb-8">It looks like this email is already on our waitlist. We’ve saved your spot!</p>
+            <p className="text-gray-600 mb-8">It looks like this email is already on our waitlist. We’ve saved your spot! Check your inbox for a welcome mail with details on what's next.</p>
             <button onClick={() => setShowError(false)} className="w-full bg-brand text-white font-bold py-4 rounded-xl">
               Got it, thanks!
             </button>
