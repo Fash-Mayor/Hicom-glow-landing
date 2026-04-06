@@ -514,7 +514,7 @@ const Landing = () => {
           <div className="glass-panel rounded-3xl p-10 md:p-12 relative overflow-hidden gs-fade-up">
             <div className="absolute top-0 right-0 w-64 h-64 bg-brand/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
             <h2 className="text-4xl font-bold mb-4 relative z-10 text-gray-900">Join the Founding Family</h2>
-            <p className="text-gray-700 mb-8 relative z-10">The first 100 users get a 'Founding Member' badge and 0% service fees for the first 2 months.<br/> (50 customers and 50 service proviers)</p>
+            <p className="text-gray-700 mb-8 relative z-10">The first 100 users get a 'Founding Member' badge and 0% service fees for the first 2 months.</p>
 
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 relative z-10">
               <select

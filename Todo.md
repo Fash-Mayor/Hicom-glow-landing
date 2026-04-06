@@ -3,4 +3,4 @@
 - loading state✅
 - saving data to supabase✅
 - sending default mail to customers and providers✅
-- fix top 50 customers mail
+- fix top 50 customers mail✅
